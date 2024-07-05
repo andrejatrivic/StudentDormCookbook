@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDormCookbook.Server", "StudentDormCookbook.Server\StudentDormCookbook.Server.csproj", "{E7595319-9117-46C4-B70F-FC5CE37909A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentDormCookbook.Server", "StudentDormCookbook.Server\StudentDormCookbook.Server.csproj", "{E7595319-9117-46C4-B70F-FC5CE37909A1}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "studentdormcookbook.client", "studentdormcookbook.client\studentdormcookbook.client.esproj", "{0398512A-A6A9-4C9D-BA11-B4FFE845540B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDormCookbook.Data", "StudentDormCookbook.Data\StudentDormCookbook.Data.csproj", "{8CE1CA70-850F-4FAD-AE83-66CBD900337E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{0398512A-A6A9-4C9D-BA11-B4FFE845540B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0398512A-A6A9-4C9D-BA11-B4FFE845540B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0398512A-A6A9-4C9D-BA11-B4FFE845540B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
