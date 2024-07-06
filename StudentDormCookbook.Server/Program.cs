@@ -23,6 +23,12 @@ builder.Services.AddDbContext<StudentCookbookDbContext>(options =>
 
 #endregion
 
+#region AutoMapper
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+#endregion
+
 #region DependencyInjectionRepository
 
 builder.Services.AddScoped<IRepository<Category>, Repository<Category>>();
