@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StudentDormCookbook.Business\StudentDormCookbook.Business.csproj" />
     <ProjectReference Include="..\studentdormcookbook.client\studentdormcookbook.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
