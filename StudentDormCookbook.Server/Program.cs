@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using StudentDormCookbook.Business.Interface;
+using StudentDormCookbook.Business.Service;
+using StudentDormCookbook.Data.Generic;
 using StudentDormCooknook.Data;
+using StudentDormCooknook.Data.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +20,24 @@ builder.Services.AddDbContext<StudentCookbookDbContext>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+#endregion
+
+#region DependencyInjectionRepository
+
+builder.Services.AddScoped<IRepository<Category>, Repository<Category>>();
+builder.Services.AddScoped<IRepository<ConvertUnit>, Repository<ConvertUnit>>();
+builder.Services.AddScoped<IRepository<Ingredient>, Repository<Ingredient>>();
+builder.Services.AddScoped<IRepository<Recipe>, Repository<Recipe>>();
+builder.Services.AddScoped<IRepository<RecipeIngredient>, Repository<RecipeIngredient>>();
+builder.Services.AddScoped<IRepository<Unit>, Repository<Unit>>();
+builder.Services.AddScoped<IRepository<User>, Repository<User>>();
+
+#endregion
+
+#region DependencyInjectionServices
+
+builder.Services.AddScoped<IIngredientService, IngredientService>();
 
 #endregion
 

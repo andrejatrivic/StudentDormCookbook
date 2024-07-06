@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentDormCookbook.Server"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "studentdormcookbook.client", "studentdormcookbook.client\studentdormcookbook.client.esproj", "{0398512A-A6A9-4C9D-BA11-B4FFE845540B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDormCookbook.Data", "StudentDormCookbook.Data\StudentDormCookbook.Data.csproj", "{8CE1CA70-850F-4FAD-AE83-66CBD900337E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentDormCookbook.Data", "StudentDormCookbook.Data\StudentDormCookbook.Data.csproj", "{8CE1CA70-850F-4FAD-AE83-66CBD900337E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDormCookbook.Business", "StudentDormCookbook.Business\StudentDormCookbook.Business.csproj", "{7BF02AC6-35F2-44B3-9F3F-1DB9DD381FCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CE1CA70-850F-4FAD-AE83-66CBD900337E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF02AC6-35F2-44B3-9F3F-1DB9DD381FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF02AC6-35F2-44B3-9F3F-1DB9DD381FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF02AC6-35F2-44B3-9F3F-1DB9DD381FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF02AC6-35F2-44B3-9F3F-1DB9DD381FCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
