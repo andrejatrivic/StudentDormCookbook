@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudentDormCookbook.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09a286b98e74712605d2a424fdc88a96e287de4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudentDormCookbook.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudentDormCookbook.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
