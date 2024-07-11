@@ -1,10 +1,12 @@
 ﻿import '../styles/CreateRecipe.css';
 import axios from 'axios';
-import { useState } from 'react'; // Import useState hook
+import { useState } from 'react';
 
 const CreateRecipe = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -16,6 +18,8 @@ const CreateRecipe = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage('');
+        setError('');
 
         try {
             const response = await axios.post('https://localhost:7118/api/Ingredient/create', {
@@ -23,10 +27,13 @@ const CreateRecipe = () => {
                 description
             });
 
-            console.log('Ingredient created:', response.data);
+            setMessage('Uspješno kreiran sastojak!');
+            console.log('Sastojak kreiran:', response.data);
         } catch (error) {
-            console.error('Error creating ingredient:', error);
+            setError('Greška kod kreiranja sastojka. Pokušajte ponovo.');
+            console.error('Greška kod kreiranja sastojka:', error);
         }
+
         setName('');
         setDescription('');
     };
@@ -38,7 +45,7 @@ const CreateRecipe = () => {
                 <h2>Ovdje ide tekst o kreiranju recepta.</h2>
             </div>
             <div className="create-ingredient-form">
-            <p>Ako ne vidite sastojak pri kreiranju recepta, prvo ga dodajte kroz ovu formu</p>
+                <p>Ako ne vidite sastojak pri kreiranju recepta, prvo ga dodajte kroz ovu formu</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Naziv:</label>
@@ -64,6 +71,8 @@ const CreateRecipe = () => {
                     </div>
                     <button type="submit">Dodaj sastojak</button>
                 </form>
+                {message && <p className="success-message">{message}</p>}
+                {error && <p className="error-message">{error}</p>}
             </div>
         </div>
     );

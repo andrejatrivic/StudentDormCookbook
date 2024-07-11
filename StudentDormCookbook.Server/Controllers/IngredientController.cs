@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using StudentDormCookbook.Business.ErrorHandler;
 using StudentDormCookbook.Business.Interface;
 using StudentDormCookbook.Business.Model;
-using StudentDormCookbook.Business.Service;
 
 namespace StudentDormCookbook.Server.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[EnableCors("AllowSpecificOrigin")]
 	public class IngredientController : ControllerBase
 	{
 		private readonly IIngredientService _service;

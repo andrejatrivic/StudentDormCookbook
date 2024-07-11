@@ -10,15 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 #region Cors
 
 builder.Services.AddCors(options =>
-{
-	options.AddDefaultPolicy(
-		builder =>
-		{
-			builder.WithOrigins("https://localhost:5173")
-				   .AllowAnyHeader()
-				   .AllowAnyMethod();
-		});
-});
+	{
+		options.AddPolicy("AllowSpecificOrigin",
+			builder => builder.WithOrigins("https://localhost:5173")
+							  .AllowAnyHeader()
+							  .AllowAnyMethod());
+	});
 
 #endregion
 
@@ -72,9 +69,19 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
+	// Cors
+	app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
+
+#region CorsApp
+
+app.UseRouting();
+
+app.UseCors("AllowSpecificOrigin");
+
+#endregion
 
 app.UseAuthorization();
 
