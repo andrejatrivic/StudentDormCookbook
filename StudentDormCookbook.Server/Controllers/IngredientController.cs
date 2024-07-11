@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentDormCookbook.Business.ErrorHandler;
 using StudentDormCookbook.Business.Interface;
 using StudentDormCookbook.Business.Model;
+using StudentDormCookbook.Business.Service;
 
 namespace StudentDormCookbook.Server.Controllers
 {
@@ -16,10 +18,17 @@ namespace StudentDormCookbook.Server.Controllers
         }
 
 		[HttpPost("create")]
-		public async Task<IngredientDTO> Create(IngredientDTO ingredient)
+		public async Task<IActionResult> Create(IngredientDTO ingredient)
 		{
-			var createdIngredient = await _service.CreateIngredient(ingredient);
-			return createdIngredient;
+			try
+			{
+				var result = await _service.CreateIngredient(ingredient);
+				return Ok(result);
+			}
+			catch (EntityAlreadyExistsException ex)
+			{
+				return Conflict(new { message = ex.Message });
+			}
 		}
 
 		[HttpGet("get")]
@@ -30,17 +39,32 @@ namespace StudentDormCookbook.Server.Controllers
 		}
 
 		[HttpPatch("update/{id}")]
-		public async Task<IngredientDTO> Update(int id, IngredientDTO ingredient)
+		public async Task<IActionResult> Update(int id, IngredientDTO ingredient)
 		{
-			var updatedIngredient = await _service.UpdateIngredient(id, ingredient);
-			return updatedIngredient;
+			try
+			{
+				var result = await _service.UpdateIngredient(id, ingredient);
+				return Ok(result);
+			}
+			catch (EntityIsNull ex)
+			{
+				return Conflict(new { message = ex.Message });
+			}
+			
 		}
 
 		[HttpDelete("delete/{id}")]
-		public async Task<IngredientDTO> Delete(int id)
+		public async Task<IActionResult> Delete(int id)
 		{
-			var deletedIngredient = await _service.DeleteIngredient(id);
-			return deletedIngredient;
+			try
+			{
+				var result = await _service.DeleteIngredient(id);
+				return Ok(result);
+			}
+			catch (EntityIsNull ex)
+			{
+				return Conflict(new { message = ex.Message });
+			}
 		}
 	}
 }

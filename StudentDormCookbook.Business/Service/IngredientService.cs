@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using StudentDormCookbook.Business.ErrorHandler;
 using StudentDormCookbook.Business.Interface;
 using StudentDormCookbook.Business.Model;
 using StudentDormCookbook.Data.Generic;
@@ -22,10 +23,14 @@ namespace StudentDormCookbook.Business.Service
 
         public async Task<IngredientDTO> CreateIngredient(IngredientDTO ingredient)
 		{
-			var ingredientEntity = _mapper.Map<Ingredient>(ingredient);
-			_repository.Add(ingredientEntity);
-			await _repository.SaveAsync();
-			return ingredient;
+			if (!CheckIfIngredientNameExists(ingredient.Name))
+			{
+				var ingredientEntity = _mapper.Map<Ingredient>(ingredient);
+				_repository.Add(ingredientEntity);
+				await _repository.SaveAsync();
+				return ingredient;
+			}
+			else throw new EntityAlreadyExistsException($"Ingredient with the name {ingredient.Name} already exists.");
 		}
 
 		public async Task<IEnumerable<IngredientDTO>> GetAllIngredients()
@@ -41,7 +46,7 @@ namespace StudentDormCookbook.Business.Service
 			var ingredientEntity = await _repository.GetByIdAsync(id);
 			if(ingredientEntity == null)
 			{
-				return null;
+				throw new EntityIsNull($"The entity with id {id} does not exist.");
 			}
 			_mapper.Map(ingredient, ingredientEntity);
 			_repository.Update(ingredientEntity);
@@ -55,12 +60,22 @@ namespace StudentDormCookbook.Business.Service
 			var ingredientEntity = await _repository.GetByIdAsync(id);
 			if (ingredientEntity == null)
 			{
-				return null;
+				throw new EntityIsNull($"The entity with id {id} does not exist.");
 			}
 			_repository.Delete(ingredientEntity);
 			await _repository.SaveAsync();
 
 			return _mapper.Map<IngredientDTO>(ingredientEntity);
+		}
+
+		private bool CheckIfIngredientNameExists(string ingredientName)
+		{
+			var ingredients = _repository.GetAll().ToList();
+			if (ingredients != null && ingredients.Any(x => x.Name.ToLower() == ingredientName.ToLower()))
+			{
+				return true;
+			}	
+			else return false;
 		}
 	}
 }
