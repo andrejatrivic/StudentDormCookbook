@@ -53,7 +53,8 @@ const CreateRecipe = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Opis:</label>
-                        <textarea
+                        <input
+                            type="text"
                             id="description"
                             name="description"
                             value={description}
