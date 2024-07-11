@@ -1,0 +1,28 @@
+.sweet-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF2E7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    padding: 20px;
+}
+
+.header > h1 {
+    text-align: left;
+    font-size: 48px;
+    color: #4B2C20;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.header > h2 {
+    text-align: left;
+    font-size: 22px;
+    color: #4B2C20;
+    font-family: 'Trebuchet MS', sans-serif;
+}

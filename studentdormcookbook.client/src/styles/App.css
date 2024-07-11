@@ -1,0 +1,98 @@
+﻿.app-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF2E7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    padding: 20px;
+}
+
+.header-and-icon {
+    display: flex;
+    flex-direction: column;
+    flex:auto;
+    /*align-items: flex-start;*/
+    margin-left: 5%;
+}
+
+.header > h1 {
+    text-align: left;
+    font-size: 48px;
+    color: #4B2C20;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.header > h2 {
+    text-align: left;
+    font-size: 22px;
+    color: #4B2C20;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.icon {
+    align-self: center;
+}
+
+.icon-fork-spoon {
+    font-size: 250px;
+    color: #4B2C20;    
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-color: #4B2C20;
+    padding: 10px;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: #FFF2E7;
+}
+
+.menu-button {
+    background-color: #4B2C20;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+    .menu-button:hover {
+        background-color: #543424;
+    }
+
+    .menu-button:active {
+        background-color: #3a2319;
+    }
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-and-icon {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .menu {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .menu-button {
+        width: 100%;
+    }
+}

@@ -7,6 +7,21 @@ using StudentDormCooknook.Data.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#region Cors
+
+builder.Services.AddCors(options =>
+{
+	options.AddDefaultPolicy(
+		builder =>
+		{
+			builder.WithOrigins("https://localhost:5173")
+				   .AllowAnyHeader()
+				   .AllowAnyMethod();
+		});
+});
+
+#endregion
+
 // Add services to the container.
 
 builder.Services.AddControllers();
